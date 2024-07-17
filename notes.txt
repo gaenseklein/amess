@@ -1,0 +1,61 @@
+#datastructure for db: 
+schematas: 
+
+group
+activity
+message
+user
+children
+
+group: 
+_id, icon, name, last_update, members, invitations, linked_groups, owners
+blocked_users(uid,block_end_date), banned_users
+
+message:
+_id, name, uid, message, date, group_id, type
+optional: read_status, icon
+
+activity: 
+_id, type,  name, last_update, group_id, messages
+task: duration, open, start_date, description, max_participants, participants, 
+
+user: 
+_id, name, children, last_update, blocked_contacts, email, pw, role (staff or parent or else...)
+
+children: 
+_id, name, classroom, parents
+
+----
+
+#api/routes:
+#user
+get_updates: returns list of new messages
+get_first_update: returns groups, activitys, profile, contacts and last 100 messages
+get_forgotten_messages/:group_id/:before_date: returns 20 messages for group older than before_date
+log_in: returns token or error
+add_message: adds a new message to a group or activity
+create_group: creates a new group
+invite_to_group: user invites other users or groups to join the owned group
+update_group: user edits the group?
+leave_group: user leaves group
+join_group: user enters group (after invitation)
+create_activity: creates a new activity (task, calendar, doodle, voting...)
+update_activity: update an owned activity (removing participants, inviting users, editing values like description, duration, max_participants...)
+delete_activity: delete owned activity
+join_activity: user takes over task, votes...
+update_profile: user changes username/email/pw
+delete_account: user deletes own account
+delete_group: user deletes owned group
+moderation/block_user: block uid to post in owned group or all owned groups for duration x 
+moderation/ban_user: ban uid from ever posting/joining group and removes it from members
+
+#staff
+register: registers a new user
+register_child: registers a new child
+update_child: updates a child (classroom)
+delete_account: delete an existing user (has left school)
+delete_child: delete a child and its corresponding parent accounts
+delete_group
+delete_activity
+delete_message
+moderation/block_user: block uid to post globaly for duration x 

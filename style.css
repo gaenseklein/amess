@@ -1,0 +1,222 @@
+body{
+	margin: 0;
+	background: var(--color_back_general);
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+:root{
+	--color_back_general: aliceblue;
+	--color_back_messagebox: cornsilk;
+	--color_back_prompt: darkcyan;
+	--color_back_header: darkcyan;
+	--color_back_count: palegreen;
+}
+
+button img {
+    width: 100%;
+}
+
+button.standard img {
+    width: 5ch;
+}
+
+.overviewelement {    
+    margin: 2ch;
+    display: grid;
+    grid-template-areas: 
+        "avatar title date"
+        "avatar message count";
+    height: fit-content;
+}
+.avatar{
+    grid-area: avatar;
+}
+.title{
+    grid-area: title;
+    text-align: center;
+    font-weight: bold;
+}
+.date{
+    grid-area: date;
+}
+.message{
+    grid-area: message;
+}
+.count{
+    grid-area: count
+}
+
+.message_wrapper {
+    display: grid;
+    grid-template-areas:
+        "avatar message";
+    grid-template-columns: 5ch auto;
+    grid-column-gap: 1ch;
+
+}
+
+.message_box {
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--color_back_messagebox)
+}
+
+.message_meta {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    grid-gap: 1ch;
+}
+.message_text {
+    white-space: pre-line;
+}
+
+.message_board {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.prompt-wrapper {
+	margin-top: 1ch;
+	padding-top: 1ch;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: start;
+    border-top: 1px solid;
+    background: var(--color_back_prompt);    
+}
+
+.prompt-wrapper button {
+    font-size: xx-large;
+}
+.prompt{
+    /* background: var(--color_back_prompt); */
+}
+
+#group_chat, #activity_display, #activity_overview {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: auto auto 1fr auto;
+    background: var(--color_back_general);
+    display: none;
+}
+.group_chat #group_chat, 
+.activity_display #activity_display,
+.activity_overview #activity_overview{
+   display: grid;
+}
+
+.activity_buttons {
+    border: 1px solid var(--color_back_header);
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 1ch;
+    text-align: center;
+    background: var(--color_back_header);
+    overflow: hidden;
+}
+
+.header {
+    background: var(--color_back_header);
+    display: grid;
+    grid-template-areas: "back title button1 button2";
+    grid-template-columns: auto 1fr auto auto;
+    border-bottom: 2px dashed;
+    padding: 1ch;
+}
+
+#header {
+    display: grid;
+    grid-template-areas:
+        "avatar name as taskbutton optionsbutton";
+    background: var(--color_back_header);
+    border-radius: 0 0 15px 15px;
+    padding: 2ch;
+    font-size: x-large;
+    margin-bottom: 2ch;
+}
+
+div#groupsoverview {
+    display: grid;
+}
+
+.count {
+    border: 1px solid;
+    border-radius: 100%;
+    width: 3ch;
+    height: 3ch;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    background: var(--color_back_count);
+}
+
+.date {
+    text-align: right;
+}
+
+.avatar {
+    background: aquamarine;
+    width: 7ch;
+    height: 7ch;
+    border-radius: 100%;
+    overflow: hidden;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.avatar img{
+	width: 80%;
+	margin: 10%;
+}
+.group_name_button, #activity_display .title {
+    display: grid;
+    grid-template-areas:
+        "avatar title"
+        "avatar groupmembers";
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1ch;
+    justify-self: center;
+}
+
+.group_name {
+    text-align: left;
+}
+
+.group_membercount {
+    text-align: left;
+}
+div#activity_display {
+    grid-template-rows: auto auto auto auto 1fr auto;
+}
+
+#activity_overview>.own,
+#activity_overview>.open,
+#activity_overview>.closed{
+	display: none;
+}
+
+#activity_overview.own .own,
+#activity_overview.open .open,
+#activity_overview.closed .closed{
+	display: grid;
+}
+
+.activity_buttons.task_overview {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.own button.own, 
+.closed button.closed, 
+.open button.open{
+    background: var(--color_back_count);
+}

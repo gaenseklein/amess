@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Arbeitsstundenmessenger</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  	<div id="main">
+		<div id="header">
+			<div id="useravatar" class="avatar empty"></div>
+			<div id="username">Jonny</div>
+			<div id="user_as">20/30 Ah</div>
+			<button class="standard taskbutton" title="Aufgabenübersicht" onclick="amess.show_activity_overview()"><span class="invisible">Aufgabenübersicht</span></button>
+			<button class="standard optionsbutton" title="Optionen" onclick="main_options.showModal()"><span class="invisible">Optionen</span></button>
+		</div>
+		<div id="groupsoverview">
+		</div>		
+  	</div>
+  	<dialog id="main_options">
+  		<ul>
+  			<li>
+  				<button class="broad" onclick="messenger.show_profil()">
+  					<img src="/img/button/profil.png">
+  					<span>Profil</span>
+  				</button>
+  			</li>
+  			<li>
+  				<button class="broad" onclick="messenger.show_add_group()">
+  					<img src="/img/button/add_group.png">
+  					<span>neue Gruppe</span>
+  				</button>
+  			</li>
+  			<li>
+  				<button class="broad" onclick="messenger.show_add_task()">
+  					<img src="/img/button/add_task.png">
+  					<span>neue Aufgabe</span>
+  				</button>
+  			</li>
+  			<li>
+  				<button class="broad" onclick="messenger.show_options()">
+  					<img src="/img/button/options.png">
+  					<span>Einstellungen</span>
+  				</button>
+  			</li>  			
+  			<li>
+  				<button class="broad" onclick="messenger.show_report()">
+  					<img src="/img/button/report.png">
+  					<span>Elternstundenbericht</span>
+  				</button>
+  			</li>
+  			<li>
+  				<button class="broad nightmode" onclick="messenger.toggle_nightmode()">
+  					<img class="night" src="/img/button/nightmode.png">
+  					<img class="day" src="/img/button/nightmode-day.png">  					
+  					<span>Nachtmodus</span>
+  				</button>
+  			</li>  			
+  		</ul>
+  	</dialog>
+  	<div id="group_chat">
+  		
+  	</div>
+  	<div id="activity_display">
+  		
+  	</div>
+  	<div id="activity_overview"></div>
+  </body>
+  <script src="templates.js"></script>
+  <script src="client.js"></script>
+</html>
+
